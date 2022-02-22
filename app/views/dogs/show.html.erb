@@ -1,0 +1,16 @@
+<h1>Look at this dog!</h1>
+
+<%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
+
+<h2>And all the information about it:</h2>
+
+<%= @dog.attributes.each do |attr, attr_val| %>
+  <ul>
+  <li>
+  <%="#{attr}:  #{attr_val} "%>
+  </li>
+  </ul>
+<% end %>
+
+
+<%=link_to "Go back to all the dogs.", dogs_path %>
