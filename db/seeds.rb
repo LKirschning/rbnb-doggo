@@ -5,30 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require "open-uri"
 
 puts "Cleaning up Database…"
 Dog.destroy_all
 puts "Database is clean"
 
-30.times do
-  Dog.create(
-    name: Faker::Creature::Dog.name,
-    gender: Faker::Creature::Dog.gender,
-    breed: Faker::Creature::Dog.breed,
-    age: Faker::Creature::Dog.age,
-    size: Faker::Creature::Dog.size,
-    description: Faker::Lorem.paragraphs(number: 1),
-    user: User.find(1)
-  )
-end
-
-img_urls = %w(https://user-images.githubusercontent.com/95690676/155146028-3afbad6f-ceb7-46b9-aa61-67fd808b93c1.jpg
+img_urls = %w(
+https://user-images.githubusercontent.com/95690676/155146028-3afbad6f-ceb7-46b9-aa61-67fd808b93c1.jpg
 https://user-images.githubusercontent.com/95690676/155146033-2207347f-68a6-43d5-a50d-956f1c887391.jpg
 https://user-images.githubusercontent.com/95690676/155146035-121d51f3-770e-4240-ab70-d76f12c95e63.jpg
 https://user-images.githubusercontent.com/95690676/155146038-4c940492-4989-4b19-a283-cd472b4e307e.jpg
 https://user-images.githubusercontent.com/95690676/155146039-5d21859a-68be-407b-9d1e-49f79fdd987b.jpg
-1
 https://user-images.githubusercontent.com/95690676/155146043-516d9c1a-96d6-4bfb-841a-f324119c0a4b.jpg
 https://user-images.githubusercontent.com/95690676/155146044-a5b859c8-9684-4d9e-af39-d78f4cfd38e3.jpg
 https://user-images.githubusercontent.com/95690676/155146045-f7b6077a-9062-4cc2-a633-99d75e5ee22e.jpg
@@ -53,4 +41,21 @@ https://user-images.githubusercontent.com/95690676/155146081-a369f446-69a3-495c-
 https://user-images.githubusercontent.com/95690676/155146082-ba8cf4f5-a44e-495e-a6b7-2b93f2e0a60f.jpg
 https://user-images.githubusercontent.com/95690676/155146087-a4fade08-2e75-4d21-9744-92850dd0b622.jpg
 https://user-images.githubusercontent.com/95690676/155146088-136cfa0d-4768-4c41-9e32-90aa188e6676.jpg
-https://user-images.githubusercontent.com/95690676/155146090-755c24ab-3c90-4f3c-9a5f-19ec02378c43.jpg).to_a
+https://user-images.githubusercontent.com/95690676/155146090-755c24ab-3c90-4f3c-9a5f-19ec02378c43.jpg)
+
+
+img_urls.each_with_index do |img, index|
+  file = URI.open(img)
+  dog = Dog.new(
+    name: Faker::Creature::Dog.name,
+    gender: Faker::Creature::Dog.gender,
+    breed: Faker::Creature::Dog.breed,
+    age: Faker::Creature::Dog.age,
+    size: Faker::Creature::Dog.size,
+    description: Faker::Lorem.paragraphs(number: 1),
+    user: User.find(1)
+    )
+  dog.photo.attach(io: file, filename: "dog_#{index}.jpg", content_type: 'image/jpg')
+  dog.save
+  p "Dog #{index} uploaded"
+end
