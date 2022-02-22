@@ -1,0 +1,14 @@
+<%= simple_form_for @dog do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= f.input :name %>
+  <%= f.input :gender %>
+  <%= f.input :breed %>
+  <%= f.input :size %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>
+
+<%# <%= f.error_notification %>
+  <%# <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
