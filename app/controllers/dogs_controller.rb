@@ -10,10 +10,19 @@ class DogsController < ApplicationController
 
   def new
     @dog = Dog.new
+
+
   end
 
   def create
     @dog = Dog.new(dog_params)
+
+    if @dog.save
+      redirect_to dog_path(@dog)
+    else
+      render :new
+    end
+
   end
 
   def destroy
