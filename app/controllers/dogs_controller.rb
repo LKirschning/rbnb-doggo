@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  # skip_before_action :authenticate_user!, only: [ :index  ]
 
   def index
     @dogs = Dog.all
@@ -38,7 +38,5 @@ class DogsController < ApplicationController
   def dog_params
     params.require(:dog).permit(:price, :name, :gender, :breed, :age, :size, :description)
   end
-
-
 
 end
