@@ -1,16 +1,44 @@
+<div class="container">
+
 <h1>Look at this dog!</h1>
-
+<div class="d-inline-flex p-2">
+<div>
 <%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
-
-<h2>And all the information about it:</h2>
-
-<%= @dog.attributes.each do |attr, attr_val| %>
-  <ul>
-  <li>
-  <%=" #{attr}:  #{attr_val} "%>
-  </li>
-  </ul>
-<% end %>
-
+<hr>
 <%= link_to "Book this dawg!",  new_dog_booking_path(@dog) %>
+<hr>
 <%=link_to "Go back to all the dogs.", dogs_path %>
+
+</div>
+
+<%# <h2>And all the information about it:</h2> %>
+<div>
+
+<ul>
+  <li>
+  <p>Name: <%= @dog.name %></p>
+  </li>
+  <li>
+  <p>Age: <%= @dog.age %></p>
+  </li>
+  <li>
+  <p>Breed: <%= @dog.breed %></p>
+  </li>
+  <li>
+  <p>Size: <%= @dog.size %></p>
+  </li>
+  <li>
+  <p>Gender: <%= @dog.gender %></p>
+  </li>
+  <li>
+  <p>Reaaally loves to: <%= @dog.description[1..-2] %></p>
+  </li>
+</ul>
+
+
+</div>
+</div>
+
+
+
+</div>
