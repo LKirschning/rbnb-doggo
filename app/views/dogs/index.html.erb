@@ -2,13 +2,11 @@
 
 
 
+<% @dogs.each do |dog| %>
 <ul>
-  <% @dogs.each do |dog| %>
-    <div class="card-category" >
-      <%= dog.name %>
-
-    </div>
-  <% end %>
+<li>
+<%= link_to dog.name, dog_path(dog)  %>
+</li>
 </ul>
-
+<% end %>
 <%= link_to "Create Dog", new_dog_path %>
