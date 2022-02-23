@@ -7,10 +7,10 @@
 <%= @dog.attributes.each do |attr, attr_val| %>
   <ul>
   <li>
-  <%="#{attr}:  #{attr_val} "%>
+  <%=" #{attr}:  #{attr_val} "%>
   </li>
   </ul>
 <% end %>
 
-
+<%= link_to "Book this dawg!",  new_dog_booking_path(@dog) %>
 <%=link_to "Go back to all the dogs.", dogs_path %>
