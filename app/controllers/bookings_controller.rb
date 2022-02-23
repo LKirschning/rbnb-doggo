@@ -9,9 +9,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @dog = Dog.find(params[:dog_id])
     @booking.dog = @dog
-    @booking.save!
+    @booking.user = @user
     if @booking.save
-      raise
+
       redirect_to dog_path(@dog)
     else
       render :new
