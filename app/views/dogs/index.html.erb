@@ -1,11 +1,14 @@
 <h1>This is all Dogs</h1>
 
-<% @dogs.each do |dog| %>
+
+
 <ul>
-<li>
-<%= link_to dog.name, dog_path(dog)  %>
-</li>
+  <% @dogs.each do |dog| %>
+    <div class="card-category" >
+      <%= dog.name %>
+
+    </div>
+  <% end %>
 </ul>
-<% end %>
 
 <%= link_to "Create Dog", new_dog_path %>
