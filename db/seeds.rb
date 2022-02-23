@@ -11,6 +11,9 @@ puts "Cleaning up Database…"
 Dog.destroy_all
 puts "Database is clean"
 
+user1 = User.new(email: "test@test.com", password: "123456")
+user1.save!
+
 img_urls = %w(
 https://user-images.githubusercontent.com/95690676/155146028-3afbad6f-ceb7-46b9-aa61-67fd808b93c1.jpg
 https://user-images.githubusercontent.com/95690676/155146033-2207347f-68a6-43d5-a50d-956f1c887391.jpg
@@ -52,9 +55,9 @@ img_urls.each_with_index do |img, index|
     breed: Faker::Creature::Dog.breed,
     age: Faker::Creature::Dog.age,
     size: Faker::Creature::Dog.size,
-    description: Faker::Lorem.paragraphs(number: 1),
-    user: User.find(1)
+    description: Faker::Lorem.paragraphs(number: 1)
     )
+    dog.user = user1
   dog.photo.attach(io: file, filename: "dog_#{index}.jpg", content_type: 'image/jpg')
   dog.save
   p "Dog #{index} uploaded"
