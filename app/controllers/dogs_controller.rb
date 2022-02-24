@@ -14,8 +14,9 @@ class DogsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @dog = Dog.new(dog_params)
-
+    @dog.user = @user
     if @dog.save
       redirect_to dog_path(@dog)
     else
@@ -36,7 +37,7 @@ class DogsController < ApplicationController
   end
 
   def dog_params
-    params.require(:dog).permit(:price, :name, :gender, :breed, :age, :size, :description)
+    params.require(:dog).permit(:price, :name, :gender, :breed, :age, :size, :description, :image)
   end
 
 end
