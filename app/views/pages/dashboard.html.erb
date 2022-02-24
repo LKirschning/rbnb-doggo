@@ -1,6 +1,8 @@
 <div class="container">
 <h1>Dashboard here please!</h1>
 
+<%= link_to "Add your Picture",  edit_user_registration_path %>
+
 <h2>Your Bookings</h2>
 <% @bookings.each do |booking| %>
 
@@ -22,3 +24,6 @@ link_to "Rent your Dog", new_dog_path, class:"btn btn-primary" %>
 <% end %>
 
 </div>
+
+
+<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
