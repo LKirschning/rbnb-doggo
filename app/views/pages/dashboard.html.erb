@@ -1,0 +1,24 @@
+<div class="container">
+<h1>Dashboard here please!</h1>
+
+<h2>Your Bookings</h2>
+<% @bookings.each do |booking| %>
+
+<p><%= "You booked #{booking.dog.name}" %></p>
+
+<% end %>
+
+
+<%=
+link_to "Rent your Dog", new_dog_path, class:"btn btn-primary" %>
+<hr>
+
+<h2>Your dogs</h2>
+
+<% @dogs.each do |dog| %>
+
+<p><%= "Your #{dog.name}" %></p>
+
+<% end %>
+
+</div>
