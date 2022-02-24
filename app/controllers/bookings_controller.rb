@@ -11,7 +11,6 @@ class BookingsController < ApplicationController
     @booking.dog = @dog
     @booking.user = @user
     if @booking.save
-
       redirect_to dog_path(@dog)
     else
       render :new

@@ -1,5 +1,18 @@
 <h1>This is all Dogs</h1>
 
+<div class="d-flex  justify-content-between">
+  <% @dogs.each do |dog| %>
+  <div class="card-product">
+  <%= cl_image_tag dog.photo.key, crop: :fill %>
+  <div class="card-product-infos">
+    <h2><%= dog.name %></h2>
+    <p><%= dog.breed %></p>
+  </div>
+</div>
+<% end %>
+  <h2>Map?</h2>
+  </div>
+</div>
 
 
 <% @dogs.each do |dog| %>
