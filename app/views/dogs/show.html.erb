@@ -3,7 +3,7 @@
 <h1>Look at this dog!</h1>
 <div class="d-inline-flex p-2">
 <div>
-<%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
+<%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill if @dog %>
 <hr>
 <%= link_to "Book this dawg!",  new_dog_booking_path(@dog) %>
 <hr>
