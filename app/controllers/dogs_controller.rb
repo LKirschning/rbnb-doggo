@@ -9,7 +9,7 @@ class DogsController < ApplicationController
         lat: dog.latitude,
         lng: dog.longitude,
         info_window: render_to_string(partial: "info_window", locals: { dog: dog }),
-        image_url: helpers.asset_url("http://res.cloudinary.com/psmkr/image/upload/c_fill/v1/development/#{dog.photo.key}")
+        # image_url: helpers.asset_url("http://res.cloudinary.com/psmkr/image/upload/c_fill/v1/development/#{dog.photo.key}")
       }
   end
 end

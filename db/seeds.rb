@@ -88,8 +88,6 @@ addresses = [
 "555 Hubbard Ave-Suite 12, Pittsfield MA 1201"]
 
 
-
-
 img_urls.each_with_index do |img, index|
   file = URI.open(img)
   dog = Dog.new(
