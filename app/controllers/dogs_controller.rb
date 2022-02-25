@@ -11,8 +11,8 @@ class DogsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { dog: dog }),
         image_url: helpers.asset_url("http://res.cloudinary.com/psmkr/image/upload/c_fill/v1/development/#{dog.photo.key}")
       }
+    end
   end
-end
 
   def show
      @dog = Dog.find(params[:id])
