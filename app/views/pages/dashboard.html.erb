@@ -6,25 +6,27 @@
             <% end %>
 <%= link_to "Add your Picture",  edit_user_registration_path %>
 
-<h2>Your Bookings</h2>
-<% @bookings.each do |booking| %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Your Bookings</h2>
+      <% @bookings.each do |booking| %>
 
-<p><%= "You booked #{booking.dog.name}" %></p>
+      <p><%= "You booked #{booking.dog.name}" %></p>
 
-<% end %>
+      <% end %>
 
 
-<%=
-link_to "Rent your Dog", new_dog_path, class:"btn btn-primary" %>
-<hr>
+      <%=link_to "Rent your Dog", new_dog_path, class:"btn btn-primary" %>
+    </div>
+    <div class="col">
+      <h2>Your dogs</h2>
 
-<h2>Your dogs</h2>
+      <% @dogs.each do |dog| %>
 
-<% @dogs.each do |dog| %>
+      <p><%= "Your #{dog.name}" %></p>
 
-<p><%= "Your #{dog.name}" %></p>
-
-<% end %>
-
+      <% end %>
+    </div>
+  </div>
 </div>
-
