@@ -31,8 +31,6 @@ link_to "Rent your Dog", new_dog_path, class:"btn btn-primary" %>
  <% if current_user.photo.attached? %>
       <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
 
-<<<<<<< HEAD
         <% end %>
-=======
-<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill if @user%>
->>>>>>> 5d23d90266cac89f9055bedf2ea3889d1809b16f
+
+

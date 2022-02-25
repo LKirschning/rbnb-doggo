@@ -11,12 +11,8 @@ class BookingsController < ApplicationController
     @booking.dog = @dog
     @booking.user = @user
     if @booking.save
-<<<<<<< HEAD
 
       redirect_to dashboard_path, notice: "Yay you made a booking!"
-=======
-      redirect_to dog_path(@dog)
->>>>>>> 5d23d90266cac89f9055bedf2ea3889d1809b16f
     else
       render :new
     end
