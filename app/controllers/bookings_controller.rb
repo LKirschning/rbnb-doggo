@@ -11,7 +11,8 @@ class BookingsController < ApplicationController
     @booking.dog = @dog
     @booking.user = @user
     if @booking.save
-      redirect_to dog_path(@dog)
+
+      redirect_to dashboard_path, notice: "Yay you made a booking!"
     else
       render :new
     end
