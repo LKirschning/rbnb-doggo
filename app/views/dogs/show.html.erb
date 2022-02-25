@@ -1,44 +1,18 @@
 <div class="container">
 
-<h1>Look at this dog!</h1>
-<div class="d-inline-flex p-2">
-<div>
-<%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill if @dog %>
-<hr>
-<%= link_to "Book this dawg!",  new_dog_booking_path(@dog) %>
-<hr>
-<%=link_to "Go back to all the dogs.", dogs_path %>
-
-</div>
-
-<%# <h2>And all the information about it:</h2> %>
-<div>
-
-<ul>
-  <li>
-  <p>Name: <%= @dog.name %></p>
-  </li>
-  <li>
-  <p>Age: <%= @dog.age %></p>
-  </li>
-  <li>
-  <p>Breed: <%= @dog.breed %></p>
-  </li>
-  <li>
-  <p>Size: <%= @dog.size %></p>
-  </li>
-  <li>
-  <p>Gender: <%= @dog.gender %></p>
-  </li>
-  <li>
-  <p>Reaaally loves to: <%= @dog.description %></p>
-  </li>
-</ul>
-
-
-</div>
-</div>
-
-
-
+<div class="card-product">
+  <<%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill if @dog %>
+  <div class="card-product-infos">
+    <h2>Look at this dog!</h2>
+    <p>
+      Name: <%= @dog.name %>
+      Age: <%= @dog.age %>
+      Breed: <%= @dog.breed %>
+      Size: <%= @dog.size %>
+      Gender: <%= @dog.gender %>
+      Reaaally loves to: <%= @dog.description %>
+      <%= link_to "Book this dawg!",  new_dog_booking_path(@dog) %>
+      <%=link_to "Go back to all the dogs.", dogs_path %>
+    </p>
+  </div>
 </div>
