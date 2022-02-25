@@ -1,6 +1,9 @@
 <div class="container">
 <h1>Dashboard here please!</h1>
 
+ <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
 <%= link_to "Add your Picture",  edit_user_registration_path %>
 
 <h2>Your Bookings</h2>
@@ -25,5 +28,9 @@ link_to "Rent your Dog", new_dog_path, class:"btn btn-primary" %>
 
 </div>
 
+ <% if current_user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
 
-<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill if @user%>
+        <% end %>
+
+
