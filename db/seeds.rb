@@ -8,9 +8,9 @@
 require "open-uri"
 
 puts "Cleaning up Database…"
+Booking.destroy_all
 Dog.destroy_all
 User.destroy_all
-Booking.destroy_all
 puts "Database is clean"
 
 user1 = User.new(email: "test@test.com", password: "123456")
