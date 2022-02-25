@@ -3,7 +3,16 @@ class DogsController < ApplicationController
 
   def index
     @dogs = Dog.all
+
+      @markers = @dogs.map do |dog|
+      {
+        lat: dog.latitude,
+        lng: dog.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { dog: dog }),
+        #image_url: helpers.asset_url(cl_image_tag dog.photo.key)
+      }
   end
+end
 
   def show
      @dog = Dog.find(params[:id])

@@ -56,7 +56,8 @@ img_urls.each_with_index do |img, index|
     breed: Faker::Creature::Dog.breed,
     age: Faker::Creature::Dog.age,
     size: Faker::Creature::Dog.size,
-    description: Faker::Lorem.paragraphs(number: 1)
+    description: Faker::Lorem.paragraphs(number: 1),
+    address: Faker::Address.city
     )
     dog.user = user1
   dog.photo.attach(io: file, filename: "dog_#{index}.jpg", content_type: 'image/jpg')

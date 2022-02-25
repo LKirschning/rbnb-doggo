@@ -73,3 +73,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 # cloudinary for image hosting
 gem 'cloudinary', '~> 1.16.0'
+
+# geocoding
+gem "geocoder"
