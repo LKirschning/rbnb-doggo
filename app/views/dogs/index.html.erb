@@ -6,11 +6,11 @@
       <div class="row m-2">
         <div class="card-product">
           <% if dog.photo.attached? %>
-            <%= link_to cl_image_tag dog.photo.key, crop: :fill %>
+            <%=cl_image_tag dog.photo.key, crop: :fill %>
           <% end %>
           <div class="card-product-infos">
-            <h2><%= dog.name %></h2>
-            <p><%= dog.breed %></p>
+            <h2><%= link_to dog.name, dog_path(dog), style:"text-decoration:none; color:black" %></h2>
+            <p><%= link_to dog.breed, dog_path(dog), style:"text-decoration:none; color:black" %></p>
           </div>
         </div>
       </div>

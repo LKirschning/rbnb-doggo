@@ -15,24 +15,19 @@
 <div>
 
 <ul>
-  <li>
-  <p>Name: <%= @dog.name %></p>
-  </li>
-  <li>
+  <h2><%= @dog.name %></h2>
+  <br>
   <p>Age: <%= @dog.age %></p>
-  </li>
-  <li>
+  <br>
   <p>Breed: <%= @dog.breed %></p>
-  </li>
-  <li>
+  <br>
   <p>Size: <%= @dog.size %></p>
-  </li>
-  <li>
+  <br>
   <p>Gender: <%= @dog.gender %></p>
-  </li>
-  <li>
-  <p>Reaaally loves to: <%= @dog.description %></p>
-  </li>
+  <br>
+  <%=
+  "#{@dog.name} is a cuddly and feisty little teddy bear, who likes to be petted, often putting their front paws on your knee asking for attention. #{@dog.name} braves the other dogs to vie for lap-time - then they lays sideways on your chest and snuggles their head under your chin. #{@dog.name}'s hair is very soft. #{@dog.name} can be playful with their human but not that interactive with the other dogs. When breakfast and dinner is getting dished up, #{@dog.name} barks and barks - the best times of the day. #{@dog.name} does sit before getting their food dish if asked. #{@dog.name} likes to be an only pet; they chase the cats and learned other dogs have boundaries and don’t share their food bowls. #{@dog.name} has gotten much more social with other people but not fond of young children. After they get petted, they go to the couch, kick back and keeps a curious eye on what’s going on. #{@dog.name} is a really cute and fun little dog. They can be quite social or the best nap-buddy you’ve ever had."
+   %>
 </ul>
 
 
